@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Valentine 💖</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#ffe6eb;
+    font-family:Arial, sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+    background:#fff;
+    padding:30px 25px;
+    border-radius:18px;
+    width:92%;
+    max-width:420px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+}
+
+.header_text{
+    color:#e6005c;
+    margin-bottom:10px;
+}
+
+.gif_container img{
+    width:260px;
+    max-width:100%;
+    border-radius:12px;
+}
+
+.buttons{
+    margin-top:20px;
+}
+
+.btn{
+    padding:12px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:10px;
+}
+
+#yesButton{
+    background:#ff4d79;
+    color:#fff;
+}
+
+#noButton{
+    background:#999;
+    color:#fff;
+    position:absolute;
+}
+
+.made-with-love{
+    position:fixed;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+
+/* YES SCREEN */
+#yesScreen{
+    display:none;
+}
+.text{
+    font-size:18px;
+    color:#444;
+    margin-top:-20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRST SCREEN -->
+<div class="container" id="firstScreen">
+    <h1 class="header_text">Will you be my Valentine? hehe 💖</h1>
+
+    <div class="gif_container">
+        <img src="https://64.media.tumblr.com/44437aaa3af65ef5b5dc25b2cf1e81d1/6acc7d78ea83e207-45/s400x600/5b30035952803850ed3136fbe760ceff97ee8d19.gif">
+    </div>
+
+    <div class="buttons">
+        <button class="btn" id="yesButton">Yes</button>
+        <button class="btn" id="noButton">No</button>
+    </div>
+
+    <p class="made-with-love">
+        Made with love and a sprinkle of creativity by Vikas 💖✨
+    </p>
+</div>
+
+<!-- YES SCREEN -->
+<div class="container" id="yesScreen">
+    <h1 class="header_text">Hoorayyy!!! 🎉💖</h1>
+
+    <div class="gif_container">
+        <img src="https://i.gifer.com/Pak.gif" style="margin-top:-40px;">
+    </div>
+
+    <p class="text">You're now <strong>Vikas's GF</strong> 😘❤️</p>
+</div>
+
+<script>
+const noBtn = document.getElementById("noButton");
+const yesBtn = document.getElementById("yesButton");
+const firstScreen = document.getElementById("firstScreen");
+const yesScreen = document.getElementById("yesScreen");
+
+/* YES CLICK */
+yesBtn.addEventListener("click", ()=>{
+    firstScreen.style.display="none";
+    yesScreen.style.display="block";
+});
+
+/* NO BUTTON MOVE (DESKTOP + MOBILE) */
+function moveNo(){
+    const x = Math.random()*(window.innerWidth-120);
+    const y = Math.random()*(window.innerHeight-80);
+    noBtn.style.left = x+"px";
+    noBtn.style.top = y+"px";
+}
+
+noBtn.addEventListener("mouseover", moveNo);   // desktop
+noBtn.addEventListener("touchstart", moveNo); // mobile
+</script>
+
+</body>
+</html>
